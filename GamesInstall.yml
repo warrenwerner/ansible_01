@@ -1,0 +1,8 @@
+- name: Games install
+  apt:
+    name: 
+      - brogue
+      - 
+    state: latest
+    update_cache: true
+  become: true

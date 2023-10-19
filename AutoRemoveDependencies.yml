@@ -1,0 +1,4 @@
+- name: automatically remove any unused dependencies
+  apt:
+    autoremove: true
+  become: true

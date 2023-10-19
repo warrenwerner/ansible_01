@@ -1,0 +1,13 @@
+- name: Core apps install
+  apt:
+    name: 
+      - guake
+      - neofetch
+      - flatpak
+      - zsh
+      - tldr
+      - exa
+      - git
+    state: latest
+    update_cache: true
+  become: true
