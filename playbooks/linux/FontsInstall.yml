@@ -1,0 +1,8 @@
+- name: Fonts install
+  apt:
+    name: 
+      - JetBrains Mono Nerdfont
+      - 
+    state: latest
+    update_cache: true
+  become: true
