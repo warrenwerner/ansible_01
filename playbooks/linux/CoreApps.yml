@@ -3,6 +3,7 @@
     name: 
       - guake
       - neofetch
+      - figlet
       - flatpak
       - zsh
       - tldr
