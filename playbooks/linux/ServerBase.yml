@@ -1,0 +1,8 @@
+- name: Server Base apps install
+  apt:
+    name: 
+      - cockpit
+      - docker
+    state: latest
+    update_cache: true
+  become: true
