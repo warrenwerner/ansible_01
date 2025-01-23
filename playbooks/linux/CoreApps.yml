@@ -7,7 +7,7 @@
       - flatpak
       - zsh
       - tldr
-      - exa
+      - eza
       - git
       - nala
       - ffmpeg
