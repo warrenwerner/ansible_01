@@ -13,6 +13,8 @@
       - ffmpeg
       - yt-dlp
       - conky
+      - gnome-tweaks
+      - vlc
     state: latest
     update_cache: true
   become: true
