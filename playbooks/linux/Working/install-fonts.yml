@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  
+    - name: ensure fonts directory
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.fonts"
+        state: directory
+
+    - name: Hack exists
+      shell: "ls {{ lookup('env', 'HOME') }}/.fonts/Hack*Nerd*Font*Complete*"
+      register: hack_exists
+      ignore_errors: yes
+
+    - name: Download Hack
+      when: hack_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/Hack.zip
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+        remote_src: yes
+
+    - name: JetBrainsMono exists
+      shell: "ls {{ lookup('env', 'HOME') }}/.fonts/JetBrains*Mono*Nerd*Font*Complete*"
+      register: jetbrainsmono_exists
+      ignore_errors: yes
+
+    - name: Download JetBrainsMono
+      when: jetbrainsmono_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/JetBrainsMono.zip
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+        remote_src: yes
+
+    - name: Meslo exists
+      shell: "ls {{ lookup('env', 'HOME') }}/.fonts/Meslo*LG*Nerd*Font*Complete*"
+      register: meslo_exists
+      ignore_errors: yes
+
+    - name: Download MesloLG
+      when: meslo_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/Meslo.zip
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+        remote_src: yes

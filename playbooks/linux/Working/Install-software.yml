@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Install common tools
+      apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: yes
+      loop:
+        - guake
+        - zsh
+        - neofetch
+        - figlet
+        - nala
+        - eza
+        - caffeine
+        - conky-all
+        - copyq
+        - tldr
+        - spell
+        - rclone
+        - git
+        - rofi
+        - lf
+        - polybar
+        - mpd
+        - ncmpcpp
+        - mixxx
+        - flatpak
+        - ffmpeg
+        - yt-dlp
+        - gnome-tweaks
