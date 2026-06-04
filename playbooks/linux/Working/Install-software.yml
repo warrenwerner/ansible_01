@@ -11,7 +11,7 @@
       loop:
         - guake
         - zsh
-        - neofetch
+        - fastfetch
         - figlet
         - nala
         - eza
