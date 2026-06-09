@@ -32,3 +32,6 @@
         - ffmpeg
         - yt-dlp
         - gnome-tweaks
+        - python3
+        - pip
+        - pipx
