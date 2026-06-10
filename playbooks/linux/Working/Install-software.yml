@@ -3,7 +3,7 @@
   connection: local
   become: yes
   tasks:
-    - name: Install common tools
+    - name: Install common tools - apt
       apt:
         name: "{{ item }}"
         state: latest
@@ -35,7 +35,7 @@
         - pip
         - pipx
 
-    - name: Install common tools
+    - name: Install common tools - pipx
       community.general.pipx:
         name: "{{ item }}"
         state: latest
