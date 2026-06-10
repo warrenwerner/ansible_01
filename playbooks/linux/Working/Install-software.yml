@@ -18,7 +18,6 @@
         - caffeine
         - conky-all
         - copyq
-        - tldr
         - spell
         - rclone
         - git
@@ -35,3 +34,10 @@
         - python3
         - pip
         - pipx
+
+    - name: Install common tools
+      community.general.pipx:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - tldr
