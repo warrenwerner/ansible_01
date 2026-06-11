@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+
+    - name: Install Joplin - wget
+      get_url:
+        url: https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh
+        dest: /tmp/Joplin_install_and_update.sh
+        mode: 'u+rwx'
+#      when: 
+#      register: download
+        
+    - name: Execute Joplin Setup Script
+      shell: /tmp/Joplin_install_and_update.sh
+      register: command_result
+      failed_when: command_result.rc not in [0, 1]
+#      when: download.changed
+       
+    - name: Remove the Joplin installer
+      file:
+        path: /tmp/Joplin_install_and_update.sh
+        state: absent
