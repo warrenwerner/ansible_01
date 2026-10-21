@@ -1,4 +1,4 @@
-#
+# The following require the 'eza' app to be installed. - Capt. Obvious
 alias l="eza -algGh --icons"
 alias ll="eza -alh"
 #
